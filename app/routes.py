@@ -12,6 +12,7 @@ def get_record(id):
 
 @app.route('/tags/<string:id>', methods=['GET'])
 def get_tag(id):
+    ged = app.config['GEDCOM']
     records = ged.tag_index[id]
     data = []
     for rec in records.keys():
@@ -29,6 +30,7 @@ def get_tag(id):
 @app.route('/index')
 @app.route('/tags')
 def index():
+    ged = app.config['GEDCOM']
     tags = ged.tag_index.keys()
     data = {
         'tags': []

@@ -7,7 +7,7 @@ EOL = "\r\n"
 LINE_LENGTH = 253
 
 REGEX_TAG = '[_A-Z][_A-Z0-9]*'
-REGEX_XREF =  '[A-Za-z0-9:_-]+'
+REGEX_XREF = '[A-Za-z0-9:_-]+'
 REGEX_VALUE = '.+'
 
 
@@ -85,8 +85,6 @@ class Fact(object):
                 output.append(fact.to_gedcom())
         return ("\n").join(output)
 
-#     {k: v for d in [defaults, user] for k, v in d.items()}
-
     def to_dict(self):
         # outdata = {'tag': self.tag}
         outdata = {}
@@ -114,6 +112,8 @@ class Fact(object):
     def __repr__(self):
         if self.value:
             return self.value
+        else:
+            return ""
     
     def get_fact(self, tag: str):
         output = []
